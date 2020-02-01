@@ -1,0 +1,15 @@
+<p>auto fit height</p>
+<textarea matInput
+  cdkTextareaAutosize
+  #autosize="cdkTextareaAutosize"
+  cdkAutosizeMinRows="1"
+  cdkAutosizeMaxRows="5"></textarea>
+
+<p>autofill input</p>
+<form>
+  <input name="name" (cdkAutofill)="nameAutofilled = $event.isAutofilled">
+  <span class="hint" *ngIf="nameAutofilled">Autofilled!</span>
+  <!-- 不使用模板
+  <input #name/> -->
+  <button type="submit">submit</button>
+</form>

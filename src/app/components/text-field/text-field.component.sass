@@ -1,0 +1,12 @@
+@import '~@angular/cdk/text-field'
+
+@include cdk-text-field()
+
+// Set custom-autofill inputs to have no background and red text.
+input.custom-autofill
+  @include cdk-text-field-autofill-color(transparent, red)
+  
+textarea
+  display: block
+  margin-top: 5px
+  width: 200px

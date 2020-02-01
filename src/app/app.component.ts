@@ -10,7 +10,8 @@ export class AppComponent {
 
   appList = [
     'scroll',
+    'textField',
     'overlay',
-    'dragdrop',
+    'dragDrop',
   ];
 }

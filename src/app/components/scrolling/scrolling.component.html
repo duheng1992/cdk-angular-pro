@@ -1,1 +1,34 @@
-<p>scrolling works!</p>
+<p>basic</p>
+<cdk-virtual-scroll-viewport itemSize="50" minBufferPx="200" maxBufferPx="400" class="example-viewport">
+  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>
+
+<p>with custom item</p>
+<cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport">
+  <div *cdkVirtualFor="let item of items;
+                       let index = index;
+                       let count = count;
+                       let first = first;
+                       let last = last;
+                       let even = even;
+                       let odd = odd; templateCacheSize: 0" [class.example-alternate]="odd">
+    <div class="example-item-detail">Item: {{item}}</div>
+    <div class="example-item-detail">Index: {{index}}</div>
+    <div class="example-item-detail">Count: {{count}}</div>
+    <div class="example-item-detail">First: {{first ? 'Yes' : 'No'}}</div>
+    <div class="example-item-detail">Last: {{last ? 'Yes' : 'No'}}</div>
+    <div class="example-item-detail">Even: {{even ? 'Yes' : 'No'}}</div>
+    <div class="example-item-detail">Odd: {{odd ? 'Yes' : 'No'}}</div>
+  </div>
+</cdk-virtual-scroll-viewport>
+
+<p>use datasource</p>
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+  <div *cdkVirtualFor="let item of ds" class="example-item">{{item || '加载中...'}}</div>
+</cdk-virtual-scroll-viewport>
+
+<p>with custom strategy (有什么用不知道，是itemsize的替代品，可能是固定了行高提高性能吧)</p>
+<cdk-virtual-scroll-viewport class="example-viewport">
+  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>
+
